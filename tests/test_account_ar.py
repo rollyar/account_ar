@@ -1,18 +1,17 @@
 # This file is part of Tryton.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 import unittest
-
+import trytond.tests.test_tryton
 from trytond.tests.test_tryton import ModuleTestCase
-from trytond.tests.test_tryton import suite as test_suite
 
 
-class AccountTestCase(ModuleTestCase):
-    'Test Account Ar module'
+class AccountARTestCase(ModuleTestCase):
+    'Test Account AR module'
     module = 'account_ar'
 
 
 def suite():
-    suite = test_suite()
+    suite = trytond.tests.test_tryton.suite()
     suite.addTests(unittest.TestLoader().loadTestsFromTestCase(
-            AccountTestCase))
+            AccountARTestCase))
     return suite

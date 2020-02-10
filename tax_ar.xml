@@ -1,30 +1,24 @@
 <?xml version="1.0"?>
-<!-- This file is part of the account_ar module for Tryton.
-The COPYRIGHT file at the top level of this repository contains
-the full copyright notices and license terms. -->
+<!-- This file is part of Tryton.  The COPYRIGHT file at the top level of
+this repository contains the full copyright notices and license terms. -->
 <tryton>
     <data>
-#
-# Tax Group
-#
-        <record model="account.tax.group"
-            id="grupo_iva_compra">
+
+        <record model="account.tax.group" id="grupo_iva_compra">
             <field name="name">IVA Compras</field>
             <field name="code">IVA</field>
             <field name="kind">purchase</field>
             <field name="afip_kind">gravado</field>
         </record>
 
-        <record model="account.tax.group"
-            id="grupo_iva_venta">
+        <record model="account.tax.group" id="grupo_iva_venta">
             <field name="name">IVA Ventas</field>
             <field name="code">IVA</field>
             <field name="kind">sale</field>
             <field name="afip_kind">gravado</field>
         </record>
 
-        <record model="account.tax.group"
-            id="grupo_provincial_venta">
+        <record model="account.tax.group" id="grupo_provincial_venta">
             <field name="name">IIBB Ventas</field>
             <field name="code">IIBB</field>
             <field name="kind">sale</field>
@@ -32,8 +26,7 @@ the full copyright notices and license terms. -->
             <field name="tribute_id">2</field>
         </record>
 
-        <record model="account.tax.group"
-            id="grupo_provincial_compra">
+        <record model="account.tax.group" id="grupo_provincial_compra">
             <field name="name">IIBB Compras</field>
             <field name="code">IIBB</field>
             <field name="kind">purchase</field>
@@ -41,8 +34,7 @@ the full copyright notices and license terms. -->
             <field name="tribute_id">2</field>
         </record>
 
-        <record model="account.tax.group"
-            id="grupo_nacional_venta">
+        <record model="account.tax.group" id="grupo_nacional_venta">
             <field name="name">Percepciones ventas</field>
             <field name="code">nacional</field>
             <field name="kind">sale</field>
@@ -50,8 +42,7 @@ the full copyright notices and license terms. -->
             <field name="tribute_id">1</field>
         </record>
 
-        <record model="account.tax.group"
-            id="grupo_nacional_compra">
+        <record model="account.tax.group" id="grupo_nacional_compra">
             <field name="name">Percepciones compras</field>
             <field name="code">nacional</field>
             <field name="kind">purchase</field>
@@ -59,17 +50,15 @@ the full copyright notices and license terms. -->
             <field name="tribute_id">1</field>
         </record>
 
-        <record model="account.tax.group"
-            id="grupo_municipal_venta">
-            <field name="name">Municipal</field>
+        <record model="account.tax.group" id="grupo_municipal_venta">
+            <field name="name">Municipal ventas</field>
             <field name="code">municipal</field>
             <field name="kind">sale</field>
             <field name="afip_kind">municipal</field>
             <field name="tribute_id">3</field>
         </record>
 
-        <record model="account.tax.group"
-            id="grupo_municipal_compra">
+        <record model="account.tax.group" id="grupo_municipal_compra">
             <field name="name">Municipal compras</field>
             <field name="code">municipal</field>
             <field name="kind">purchase</field>
@@ -77,26 +66,23 @@ the full copyright notices and license terms. -->
             <field name="tribute_id">3</field>
         </record>
 
-        <record model="account.tax.group"
-            id="grupo_interno_venta">
-            <field name="name">Interno</field>
+        <record model="account.tax.group" id="grupo_interno_venta">
+            <field name="name">Interno ventas</field>
             <field name="code">interno</field>
             <field name="kind">sale</field>
             <field name="afip_kind">interno</field>
             <field name="tribute_id">4</field>
         </record>
 
-        <record model="account.tax.group"
-            id="grupo_interno_compra">
-            <field name="name">Interno</field>
+        <record model="account.tax.group" id="grupo_interno_compra">
+            <field name="name">Interno compras</field>
             <field name="code">interno</field>
             <field name="kind">purchase</field>
             <field name="afip_kind">interno</field>
             <field name="tribute_id">4</field>
         </record>
 
-        <record model="account.tax.group"
-            id="grupo_other">
+        <record model="account.tax.group" id="grupo_other">
             <field name="name">Other</field>
             <field name="code">other</field>
             <field name="kind">both</field>
@@ -104,145 +90,138 @@ the full copyright notices and license terms. -->
             <field name="tribute_id">99</field>
         </record>
 
-#
-# Tax Code Templates
-#
-        <record model="account.tax.code.template"
-            id="tax_code_ar">
+        <record model="account.tax.code.template" id="tax_code_ar">
             <field name="name">Códigos de impuestos</field>
-            <field name="account" ref="root"/>
+            <field name="account" ref="root_ar"/>
         </record>
 
-        <record model="account.tax.code.template"
-            id="vat_code_chart_root">
+        <record model="account.tax.code.template" id="vat_code_chart_root">
             <field name="name">Impuestos de Argentina</field>
             <field name="parent" ref="tax_code_ar"/>
-            <field name="account" ref="root"/>
+            <field name="account" ref="root_ar"/>
         </record>
 
         <record model="account.tax.code.template"
             id="vat_code_iva">
             <field name="name">IVA</field>
             <field name="parent" ref="vat_code_chart_root"/>
-            <field name="account" ref="root"/>
+            <field name="account" ref="root_ar"/>
         </record>
         <record model="account.tax.code.template"
             id="code_nacional">
             <field name="name">Nacional</field>
             <field name="parent" ref="vat_code_chart_root"/>
-            <field name="account" ref="root"/>
+            <field name="account" ref="root_ar"/>
         </record>
         <record model="account.tax.code.template"
             id="code_provincial">
             <field name="name">Provincial</field>
             <field name="parent" ref="vat_code_chart_root"/>
-            <field name="account" ref="root"/>
+            <field name="account" ref="root_ar"/>
         </record>
         <record model="account.tax.code.template"
             id="code_municipal">
             <field name="name">Municipal</field>
             <field name="parent" ref="vat_code_chart_root"/>
-            <field name="account" ref="root"/>
+            <field name="account" ref="root_ar"/>
         </record>
         <record model="account.tax.code.template"
             id="code_interno">
             <field name="name">Interno</field>
             <field name="parent" ref="vat_code_chart_root"/>
-            <field name="account" ref="root"/>
+            <field name="account" ref="root_ar"/>
         </record>
         <record model="account.tax.code.template"
             id="code_other">
             <field name="name">Other</field>
             <field name="parent" ref="vat_code_chart_root"/>
-            <field name="account" ref="root"/>
+            <field name="account" ref="root_ar"/>
         </record>
 
         <record model="account.tax.code.template"
             id="vat_code_iva_venta21">
             <field name="name">IVA Ventas 21</field>
             <field name="parent" ref="vat_code_iva"/>
-            <field name="account" ref="root"/>
+            <field name="account" ref="root_ar"/>
         </record>
 
         <record model="account.tax.code.template"
             id="vat_code_iva_venta105">
             <field name="name">IVA Ventas 10.5</field>
             <field name="parent" ref="vat_code_iva"/>
-            <field name="account" ref="root"/>
+            <field name="account" ref="root_ar"/>
         </record>
 
         <record model="account.tax.code.template"
             id="vat_code_iva_venta27">
             <field name="name">IVA Ventas 27</field>
             <field name="parent" ref="vat_code_iva"/>
-            <field name="account" ref="root"/>
+            <field name="account" ref="root_ar"/>
         </record>
 
         <record model="account.tax.code.template"
             id="vat_code_iva_venta0">
             <field name="name">IVA Ventas 0</field>
             <field name="parent" ref="vat_code_iva"/>
-            <field name="account" ref="root"/>
+            <field name="account" ref="root_ar"/>
         </record>
 
         <record model="account.tax.code.template"
             id="vat_code_iva_venta05">
             <field name="name">IVA Ventas 5</field>
             <field name="parent" ref="vat_code_iva"/>
-            <field name="account" ref="root"/>
+            <field name="account" ref="root_ar"/>
         </record>
 
         <record model="account.tax.code.template"
             id="vat_code_iva_venta025">
             <field name="name">IVA Ventas 2.5</field>
             <field name="parent" ref="vat_code_iva"/>
-            <field name="account" ref="root"/>
+            <field name="account" ref="root_ar"/>
         </record>
 
         <record model="account.tax.code.template"
             id="vat_code_iva_compra21">
             <field name="name">IVA Compras 21</field>
             <field name="parent" ref="vat_code_iva"/>
-            <field name="account" ref="root"/>
+            <field name="account" ref="root_ar"/>
         </record>
 
         <record model="account.tax.code.template"
             id="vat_code_iva_compra105">
             <field name="name">IVA Compras 10.5</field>
             <field name="parent" ref="vat_code_iva"/>
-            <field name="account" ref="root"/>
+            <field name="account" ref="root_ar"/>
         </record>
 
         <record model="account.tax.code.template"
             id="vat_code_iva_compra27">
             <field name="name">IVA Compras 27</field>
             <field name="parent" ref="vat_code_iva"/>
-            <field name="account" ref="root"/>
+            <field name="account" ref="root_ar"/>
         </record>
 
         <record model="account.tax.code.template"
             id="vat_code_iva_compra0">
             <field name="name">IVA Compras 0</field>
             <field name="parent" ref="vat_code_iva"/>
-            <field name="account" ref="root"/>
+            <field name="account" ref="root_ar"/>
         </record>
 
         <record model="account.tax.code.template"
             id="vat_code_iva_compra05">
             <field name="name">IVA Compras 5</field>
             <field name="parent" ref="vat_code_iva"/>
-            <field name="account" ref="root"/>
+            <field name="account" ref="root_ar"/>
         </record>
 
         <record model="account.tax.code.template"
             id="vat_code_iva_compra025">
             <field name="name">IVA Compras 2.5</field>
             <field name="parent" ref="vat_code_iva"/>
-            <field name="account" ref="root"/>
+            <field name="account" ref="root_ar"/>
         </record>
-#
-# Tax Template
-#
+
         <record model="account.tax.template"
             id="vat_21_ventas">
             <field name="name">IVA Ventas 21%</field>
@@ -251,7 +230,7 @@ the full copyright notices and license terms. -->
             <field name="type">percentage</field>
             <field name="invoice_account" ref="iva_debito_fiscal"/>
             <field name="credit_note_account" ref="iva_debito_fiscal"/>
-            <field name="account" ref="root"/>
+            <field name="account" ref="root_ar"/>
             <field name="group" ref="grupo_iva_venta"/>
             <field name="iva_code">5</field>
         </record>
@@ -280,7 +259,7 @@ the full copyright notices and license terms. -->
             <field name="type">percentage</field>
             <field name="invoice_account" ref="iva_debito_fiscal"/>
             <field name="credit_note_account" ref="iva_debito_fiscal"/>
-            <field name="account" ref="root"/>
+            <field name="account" ref="root_ar"/>
             <field name="group" ref="grupo_iva_venta"/>
             <field name="iva_code">4</field>
         </record>
@@ -309,7 +288,7 @@ the full copyright notices and license terms. -->
             <field name="type">percentage</field>
             <field name="invoice_account" ref="iva_debito_fiscal"/>
             <field name="credit_note_account" ref="iva_debito_fiscal"/>
-            <field name="account" ref="root"/>
+            <field name="account" ref="root_ar"/>
             <field name="group" ref="grupo_iva_venta"/>
             <field name="iva_code">6</field>
         </record>
@@ -338,7 +317,7 @@ the full copyright notices and license terms. -->
             <field name="type">percentage</field>
             <field name="invoice_account" ref="iva_debito_fiscal"/>
             <field name="credit_note_account" ref="iva_debito_fiscal"/>
-            <field name="account" ref="root"/>
+            <field name="account" ref="root_ar"/>
             <field name="group" ref="grupo_iva_venta"/>
             <field name="iva_code">3</field>
         </record>
@@ -367,7 +346,7 @@ the full copyright notices and license terms. -->
             <field name="type">percentage</field>
             <field name="invoice_account" ref="iva_debito_fiscal"/>
             <field name="credit_note_account" ref="iva_debito_fiscal"/>
-            <field name="account" ref="root"/>
+            <field name="account" ref="root_ar"/>
             <field name="group" ref="grupo_iva_venta"/>
             <field name="iva_code">8</field>
         </record>
@@ -396,7 +375,7 @@ the full copyright notices and license terms. -->
             <field name="type">percentage</field>
             <field name="invoice_account" ref="iva_debito_fiscal"/>
             <field name="credit_note_account" ref="iva_debito_fiscal"/>
-            <field name="account" ref="root"/>
+            <field name="account" ref="root_ar"/>
             <field name="group" ref="grupo_iva_venta"/>
             <field name="iva_code">9</field>
         </record>
@@ -425,7 +404,7 @@ the full copyright notices and license terms. -->
             <field name="type">percentage</field>
             <field name="invoice_account" ref="iva_credito_fiscal"/>
             <field name="credit_note_account" ref="iva_credito_fiscal"/>
-            <field name="account" ref="root"/>
+            <field name="account" ref="root_ar"/>
             <field name="group" ref="grupo_iva_compra"/>
             <field name="iva_code">5</field>
         </record>
@@ -454,7 +433,7 @@ the full copyright notices and license terms. -->
             <field name="type">percentage</field>
             <field name="invoice_account" ref="iva_credito_fiscal"/>
             <field name="credit_note_account" ref="iva_credito_fiscal"/>
-            <field name="account" ref="root"/>
+            <field name="account" ref="root_ar"/>
             <field name="group" ref="grupo_iva_compra"/>
             <field name="iva_code">4</field>
         </record>
@@ -483,7 +462,7 @@ the full copyright notices and license terms. -->
             <field name="type">percentage</field>
             <field name="invoice_account" ref="iva_credito_fiscal"/>
             <field name="credit_note_account" ref="iva_credito_fiscal"/>
-            <field name="account" ref="root"/>
+            <field name="account" ref="root_ar"/>
             <field name="group" ref="grupo_iva_compra"/>
             <field name="iva_code">6</field>
         </record>
@@ -512,7 +491,7 @@ the full copyright notices and license terms. -->
             <field name="type">percentage</field>
             <field name="invoice_account" ref="iva_credito_fiscal"/>
             <field name="credit_note_account" ref="iva_credito_fiscal"/>
-            <field name="account" ref="root"/>
+            <field name="account" ref="root_ar"/>
             <field name="group" ref="grupo_iva_compra"/>
             <field name="iva_code">3</field>
         </record>
@@ -541,7 +520,7 @@ the full copyright notices and license terms. -->
             <field name="type">percentage</field>
             <field name="invoice_account" ref="iva_credito_fiscal"/>
             <field name="credit_note_account" ref="iva_credito_fiscal"/>
-            <field name="account" ref="root"/>
+            <field name="account" ref="root_ar"/>
             <field name="group" ref="grupo_iva_compra"/>
             <field name="iva_code">8</field>
         </record>
@@ -570,7 +549,7 @@ the full copyright notices and license terms. -->
             <field name="type">percentage</field>
             <field name="invoice_account" ref="iva_credito_fiscal"/>
             <field name="credit_note_account" ref="iva_credito_fiscal"/>
-            <field name="account" ref="root"/>
+            <field name="account" ref="root_ar"/>
             <field name="group" ref="grupo_iva_compra"/>
             <field name="iva_code">9</field>
         </record>
@@ -599,7 +578,7 @@ the full copyright notices and license terms. -->
             <field name="type">percentage</field>
             <field name="invoice_account" ref="percepciones_ingresos_brutos"/>
             <field name="credit_note_account" ref="percepciones_ingresos_brutos"/>
-            <field name="account" ref="root"/>
+            <field name="account" ref="root_ar"/>
             <field name="group" ref="grupo_provincial_compra"/>
         </record>
 
@@ -611,7 +590,7 @@ the full copyright notices and license terms. -->
             <field name="type">percentage</field>
             <field name="invoice_account" ref="percepcion_iva"/>
             <field name="credit_note_account" ref="percepcion_iva"/>
-            <field name="account" ref="root"/>
+            <field name="account" ref="root_ar"/>
             <field name="group" ref="grupo_nacional_compra"/>
         </record>
 
